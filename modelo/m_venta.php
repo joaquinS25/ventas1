@@ -1,4 +1,30 @@
 <?php 
+function ObtenerDetalleVenta($id_venta) {
+    require("conexion.php");
+
+    $sql = "SELECT vd.*, 
+                   p.nom_producto, 
+                   v.id_venta, 
+                   mp.nom_mediopago, 
+                   tc.nom_tipocomprobante
+            FROM ventadetalle vd
+            INNER JOIN producto p ON vd.id_producto = p.id_producto
+            INNER JOIN venta v ON vd.id_venta = v.id_venta
+            INNER JOIN mediopago mp ON v.id_mediopago = mp.id_mediopago
+            INNER JOIN tipocomprobante tc ON v.id_tipocomprobante = tc.id_tipocomprobante
+            WHERE vd.id_venta = '$id_venta'";
+
+    $res = mysqli_query($con, $sql);
+
+    $datos = array();
+    while ($fila = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+        $datos[] = $fila;
+    }
+
+    mysqli_close($con);
+    return $datos;
+}
+
 function ListarVentas()
 {
 	require("conexion.php");

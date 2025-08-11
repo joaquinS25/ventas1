@@ -10,10 +10,12 @@
         <?php
          require("vista/estilos.php");
         ?>
-
+        
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <script>
+            
             function Anular(dato)
             {
                 var id_venta =  dato.value;
@@ -72,6 +74,7 @@
                     
                    
                     $ventas = ListarVentas();
+                    $ventasDetalle = ListarVentasDetalles();
                     require("vista/v_venta_listar.php");
                     ?>
                 </main>
@@ -86,4 +89,5 @@
         require("vista/scripts.php");
         ?>  
     </body>
+   
 </html>

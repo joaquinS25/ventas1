@@ -1,4 +1,5 @@
 <?php 
+
 function ObtenerDetalleVenta($id_venta) {
     require("conexion.php");
 

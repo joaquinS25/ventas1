@@ -74,7 +74,7 @@
                     
                    
                     $ventas = ListarVentas();
-                    $ventasDetalle = ListarVentasDetalles();
+                    //$ventasDetalle = ListarVentasDetalles();
                     require("vista/v_venta_listar.php");
                     ?>
                 </main>
